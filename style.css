@@ -8,7 +8,7 @@ body{
     background-color: cornflowerblue;
     flex-direction: column;
     height: 400px;
-    width: 200px;
+    width: 250px;
     padding: 20px;
     border: 5px solid black;
     border-radius: 5px;
@@ -27,13 +27,13 @@ input{
     display: flex;
     flex-wrap: wrap;
     height: 500px;
-    width: 180px;
+    width: 230px;
     justify-content: center;
     gap: 5px;
 }
 button{
-    height: 50px;
-    width: 40px;
+    height: 60px;
+    width: 50px;
     background-color: grey;
     font-size: 20px;
     color: aqua;

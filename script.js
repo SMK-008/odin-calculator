@@ -15,6 +15,7 @@ const addition=document.querySelector('#plus')
 const subtraction=document.querySelector('#minus')
 const equals=document.querySelector('#equals')
 const clear=document.querySelector('#clear')
+const decimal=document.querySelector('#decimal')
 
 let display=document.querySelector('input')
 //butttons functionalities
@@ -71,27 +72,32 @@ nine.addEventListener('click',()=>{
 multiplication.addEventListener('click',()=>{
     display.value+="x"
     signs.push("*")
-    numbers.push(parseInt(number))
+    numbers.push(parseFloat(number))
     number=""
 })
 division.addEventListener('click',()=>{
     display.value+="/"
     signs.push("/")
-    numbers.push(parseInt(number))
+    numbers.push(parseFloat(number))
     number=""
 })
 addition.addEventListener('click',()=>{
     display.value+="+"
     signs.push("+")
-    numbers.push(parseInt(number))
+    numbers.push(parseFloat(number))
     number=""
 })
 subtraction.addEventListener('click',()=>{
     display.value+="-"
     signs.push("-")
-    numbers.push(parseInt(number))
+    numbers.push(parseFloat(number))
     number=""
 })
+decimal.addEventListener('click',()=>{
+    display.value+="."
+    number+="."
+})
+
 clear.addEventListener('click',()=>{
     display.value=""
     numbers.splice(0,numbers.length)
@@ -158,7 +164,7 @@ const final=numbers.reduce((result,item)=>{
         }
     }
 })
-display.value=final
+display.value=(Math.round(final*100))/100   
 
 }
 
