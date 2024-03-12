@@ -22,155 +22,309 @@ let display=document.querySelector('input')
 
 let numbers=[]//array for numbers
 let signs=[]//array for signs
+let firstNum=""
+let secondNum=""
+let sign=""
 
-let number=""//stores number for each part of the operation
 zero.addEventListener('click',()=>{
-    number+=0
     display.value+=0
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=0
+    }
+    else{
+        firstNum+=0
+    }
 })
+
 one.addEventListener('click',()=>{
-    number+=1
     display.value+=1
-
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=1
+    }
+    else{
+        firstNum+=1
+    }
 })
+
 two.addEventListener('click',()=>{
-    number+=2
     display.value+=2
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=2
+    }
+    else{
+        firstNum+=2
+    }
 })
+
 three.addEventListener('click',()=>{
-    number+=3
     display.value+=3
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=3
+    }
+    else{
+        firstNum+=3
+    }
 })
+
 four.addEventListener('click',()=>{
-    number+=4
     display.value+=4
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=4
+    }
+    else{
+        firstNum+=4
+    }
 
 })
+
 five.addEventListener('click',()=>{
-    number+=5
     display.value+=5
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=5
+    }
+    else{
+        firstNum+=5
+    }
 
 })
+
 six.addEventListener('click',()=>{
-    number+=6
     display.value+=6
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=6
+    }
+    else{
+        firstNum+=6
+    }
 
 })
+
 seven.addEventListener('click',()=>{
-    number+=7
     display.value+=7
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=7
+    }
+    else{
+        firstNum+=7
+    }
 
 })
+
 eight.addEventListener('click',()=>{
-    number+=8
     display.value+=8
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=8
+    }
+    else{
+        firstNum+=8
+    }
 })
+
 nine.addEventListener('click',()=>{
-    number+=9
     display.value+=9
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+        secondNum+=9
+    }
+    else{
+        firstNum+=9
+    }
 })
+
 multiplication.addEventListener('click',()=>{
-    display.value+="x"
-    signs.push("*")
-    numbers.push(parseFloat(number))
-    number=""
+    //allows doing multiple operations without pressing equals
+    if((!(firstNum=="")) && (!(secondNum=="")) && (!(sign==""))){
+        if(sign=="+"){
+            let result=parseFloat(firstNum)+parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="-"){
+            let result=parseFloat(firstNum)-parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="x"){
+            let result=parseFloat(firstNum)*parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="/"){
+            let result=parseFloat(firstNum)/parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }
+    }
+    else{
+        if(sign.includes("x")){
+            display.value+=""
+        }else{
+            display.value+="x"
+            sign+="x"    
+        }
+    }
+    
 })
+
 division.addEventListener('click',()=>{
-    display.value+="/"
-    signs.push("/")
-    numbers.push(parseFloat(number))
-    number=""
+    // allows multiple operations without pressing equals
+    if((!(firstNum=="")) && (!(secondNum=="")) && (!(sign==""))){
+        if(sign=="+"){
+            let result=parseFloat(firstNum)+parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="-"){
+            let result=parseFloat(firstNum)-parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="x"){
+            let result=parseFloat(firstNum)*parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="/"){
+            let result=parseFloat(firstNum)/parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }
+    }else{
+        if(sign.includes("/")){
+            display.value+=""
+        }else{
+            display.value+="/"
+            sign+="/" 
+        }
+    }
 })
+
 addition.addEventListener('click',()=>{
-    display.value+="+"
-    signs.push("+")
-    numbers.push(parseFloat(number))
-    number=""
+    // allows multiple operations without pressing equals
+    if((!(firstNum=="")) && (!(secondNum=="")) && (!(sign==""))){
+        if(sign=="+"){
+            let result=parseFloat(firstNum)+parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="-"){
+            let result=parseFloat(firstNum)-parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="x"){
+            let result=parseFloat(firstNum)*parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="/"){
+            let result=parseFloat(firstNum)/parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }
+    }else{
+        if(sign.includes("+")){
+            display.value+=""
+        }else{
+            display.value+="+"
+            sign+="+" 
+        }
+    }   
 })
+
 subtraction.addEventListener('click',()=>{
-    display.value+="-"
-    signs.push("-")
-    numbers.push(parseFloat(number))
-    number=""
+    // allows multiple operations without pressing equals
+    if((!(firstNum=="")) && (!(secondNum=="")) && (!(sign==""))){
+        if(sign=="+"){
+            let result=parseFloat(firstNum)+parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="-"){
+            let result=parseFloat(firstNum)-parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="x"){
+            let result=parseFloat(firstNum)*parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="/"){
+            let result=parseFloat(firstNum)/parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }
+    }else{
+        if(sign.includes("-")){
+            display.value+=""
+        }else{
+            display.value+="-"
+            sign+="-"
+        }
+    }
+
 })
+
 decimal.addEventListener('click',()=>{
+  if(!(firstNum.includes("."))){
     display.value+="."
-    number+="."
+    firstNum+="."
+  }else if(!(secondNum.includes("."))){
+    display.value+="."
+    secondNum+="."
+  }else{
+    display.value+=""
+    secondNum+=""
+    firstNum+=""
+  }
 })
 
 clear.addEventListener('click',()=>{
     display.value=""
-    numbers.splice(0,numbers.length)
+    firstNum=""
+    secondNum=""
+    sign=""
     signs.splice(0,signs.length)
-    number=""
+    numbers.splice(0,numbers.length)
 })
-
 
 const operate=()=>{
-    numbers.push(parseInt(number))
-const final=numbers.reduce((result,item)=>{
-    let newNumber
-    //check if only 2 numbers and one sign
-    if(numbers.length==2 || signs.length==1){
-        if(signs.includes("+")){
-            return  result+item
-        }else if(signs.includes("-")){
-            return result-item  
-        }else if(signs.includes("*")){
-            return  result*item
-        }else if(signs.includes("/")){
-            return result/item  
-        }
-    }else if(signs.length==2){//what happens when there is multiple signs in the display
-        if(signs[0].includes("+")){
-            newNumber=numbers[0]+numbers[1]
-            numbers.splice(0,2)
-            signs.splice(0,1)
-            numbers.unshift(newNumber)
-            newNumber=`${newNumber}${signs[0]}${numbers[1]}`
-            return newNumber
-        }else if(signs[0].includes("-")){
-            newNumber=numbers[0]-numbers[1]
-            numbers.splice(0,2)
-            signs.splice(0,1)
-            numbers.unshift(newNumber)
-            newNumber=`${newNumber}${signs[0]}${numbers[1]}`
-            return newNumber
-        }else if(signs[0].includes("*")){
-            newNumber=numbers[0]*numbers[1]
-            numbers.splice(0,2)
-            signs.splice(0,1)
-            numbers.unshift(newNumber)
-            newNumber=`${newNumber}${signs[0]}${numbers[1]}`
-            return newNumber
-        }else if(signs[0].includes("/")){
-            newNumber=numbers[0]/numbers[1]
-            numbers.splice(0,2)
-            signs.splice(0,1)
-            numbers.unshift(newNumber)
-            newNumber=`${newNumber}${signs[0]}${numbers[1]}`
-            return newNumber 
-        }
-}
-    else if(numbers.includes(newNumber)){
-        if(signs.includes("+")){
-            return  numbers[0]+numbers[1]
-        }else if(signs.includes("-")){
-            return numbers[0]-numbers[1]  
-        }else if(signs.includes("*")){
-            return  numbers[0]*numbers[1]
-        }else if(signs.includes("/")){
-            return numbers[0]/numbers[1]  
-        }
-    }
-})
-display.value=(Math.round(final*100))/100   
+    numbers.push(parseFloat(firstNum))
+    numbers.push(parseFloat(secondNum))
+    signs.push(sign)
 
+    const final=numbers.reduce((total,item)=>{
+        if(signs.includes("+")){
+            return total+item
+        }else if(signs.includes("-")){
+            return total-item
+        }else if(signs.includes("/")){
+            return total/item
+        }else if(signs.includes("x")){
+            return total*item
+        }
+    })
+    display.value=Math.round(final*1000)/1000
 }
-
 
 equals.addEventListener('click',operate)
-equals.addEventListener('click',()=>{
-    number=""
-})
-
