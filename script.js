@@ -16,6 +16,9 @@ const subtraction=document.querySelector('#minus')
 const equals=document.querySelector('#equals')
 const clear=document.querySelector('#clear')
 const decimal=document.querySelector('#decimal')
+const power=document.querySelector("#power")
+const squared=document.querySelector("#squared")
+const root=document.querySelector("#root")
 
 let display=document.querySelector('input')
 //butttons functionalities
@@ -28,7 +31,7 @@ let sign=""
 
 zero.addEventListener('click',()=>{
     display.value+=0
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=0
     }
     else{
@@ -38,7 +41,7 @@ zero.addEventListener('click',()=>{
 
 one.addEventListener('click',()=>{
     display.value+=1
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=1
     }
     else{
@@ -48,7 +51,7 @@ one.addEventListener('click',()=>{
 
 two.addEventListener('click',()=>{
     display.value+=2
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=2
     }
     else{
@@ -58,7 +61,7 @@ two.addEventListener('click',()=>{
 
 three.addEventListener('click',()=>{
     display.value+=3
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=3
     }
     else{
@@ -68,7 +71,7 @@ three.addEventListener('click',()=>{
 
 four.addEventListener('click',()=>{
     display.value+=4
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=4
     }
     else{
@@ -79,7 +82,7 @@ four.addEventListener('click',()=>{
 
 five.addEventListener('click',()=>{
     display.value+=5
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=5
     }
     else{
@@ -90,7 +93,7 @@ five.addEventListener('click',()=>{
 
 six.addEventListener('click',()=>{
     display.value+=6
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=6
     }
     else{
@@ -101,7 +104,7 @@ six.addEventListener('click',()=>{
 
 seven.addEventListener('click',()=>{
     display.value+=7
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=7
     }
     else{
@@ -112,7 +115,7 @@ seven.addEventListener('click',()=>{
 
 eight.addEventListener('click',()=>{
     display.value+=8
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=8
     }
     else{
@@ -122,7 +125,7 @@ eight.addEventListener('click',()=>{
 
 nine.addEventListener('click',()=>{
     display.value+=9
-    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x")){
+    if(sign.includes("-") || sign.includes("+")|| sign.includes("/") || sign.includes("x") || sign.includes("^")){
         secondNum+=9
     }
     else{
@@ -157,9 +160,14 @@ multiplication.addEventListener('click',()=>{
             secondNum=""
             sign=""
             display.value=result
+        }else if(sign=="^"){
+            let result=Math.pow(parseFloat(firstNum),parseFloat(secondNum))
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
         }
-    }
-    else{
+    }else{
         if(sign.includes("x")){
             display.value+=""
         }else{
@@ -167,7 +175,7 @@ multiplication.addEventListener('click',()=>{
             sign+="x"    
         }
     }
-    
+
 })
 
 division.addEventListener('click',()=>{
@@ -197,6 +205,12 @@ division.addEventListener('click',()=>{
             secondNum=""
             sign=""
             display.value=result
+        }else if(sign=="^"){
+            let result=Math.pow(parseFloat(firstNum),parseFloat(secondNum))
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
         }
     }else{
         if(sign.includes("/")){
@@ -206,6 +220,7 @@ division.addEventListener('click',()=>{
             sign+="/" 
         }
     }
+
 })
 
 addition.addEventListener('click',()=>{
@@ -231,6 +246,13 @@ addition.addEventListener('click',()=>{
             display.value=result
         }else if(sign=="/"){
             let result=parseFloat(firstNum)/parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }
+        else if(sign=="^"){
+            let result=Math.pow(parseFloat(firstNum),parseFloat(secondNum))
             firstNum=result
             secondNum=""
             sign=""
@@ -273,6 +295,12 @@ subtraction.addEventListener('click',()=>{
             secondNum=""
             sign=""
             display.value=result
+        }else if(sign=="^"){
+        let result=Math.pow(parseFloat(firstNum),parseFloat(secondNum))
+        firstNum=result
+        secondNum=""
+        sign=""
+        display.value=result
         }
     }else{
         if(sign.includes("-")){
@@ -282,9 +310,136 @@ subtraction.addEventListener('click',()=>{
             sign+="-"
         }
     }
-
+    
 })
-
+power.addEventListener('click',()=>{
+    if(!(sign=="") && !(secondNum=="") && !(firstNum=="")){
+        if(sign=="+"){
+            let result=parseFloat(firstNum)+parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="-"){
+            let result=parseFloat(firstNum)-parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="x"){
+            let result=parseFloat(firstNum)*parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="/"){
+            let result=parseFloat(firstNum)/parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="^"){
+            let result=Math.pow(parseFloat(firstNum),parseFloat(secondNum))
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }
+    }else{
+        if(sign.includes("^")){
+            display.value+=""
+        }else{
+            display.value+="^"
+            sign+="^"
+        }
+        
+    }
+    
+})
+squared.addEventListener('click',()=>{
+    if((!(firstNum=="")) && (!(secondNum=="")) && (!(sign==""))){
+        if(sign=="+"){
+            let result=parseFloat(firstNum)+parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="-"){
+            let result=parseFloat(firstNum)-parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="x"){
+            let result=parseFloat(firstNum)*parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="/"){
+            let result=parseFloat(firstNum)/parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="^"){
+            let result=Math.pow(parseFloat(firstNum),parseFloat(secondNum))
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }
+    }else{
+        if(sign.includes("^2")){
+            display.value+=""
+        }else{
+            display.value+="^2"
+            sign+="^2"
+        }
+    }
+})
+root.addEventListener('click',()=>{
+    if((!(firstNum=="")) && (!(secondNum=="")) && (!(sign==""))){
+        if(sign=="+"){
+            let result=parseFloat(firstNum)+parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="-"){
+            let result=parseFloat(firstNum)-parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="x"){
+            let result=parseFloat(firstNum)*parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="/"){
+            let result=parseFloat(firstNum)/parseFloat(secondNum)
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }else if(sign=="^"){
+            let result=Math.pow(parseFloat(firstNum),parseFloat(secondNum))
+            firstNum=result
+            secondNum=""
+            sign=""
+            display.value=result
+        }
+    }else{
+        if(sign.includes("√")){
+            display.value+=""
+        }else{
+            display.value+="√"
+            sign+="√"
+        }
+    }
+})
 decimal.addEventListener('click',()=>{
   if(!(firstNum.includes("."))){
     display.value+="."
@@ -319,11 +474,18 @@ const operate=()=>{
         }else if(signs.includes("-")){
             return total-item
         }else if(signs.includes("/")){
-            return total/item
+                return total/item
         }else if(signs.includes("x")){
             return total*item
+        }else if(signs.includes("^")){
+            return Math.pow(total,item)
+        }else if(signs.includes("^2")){
+            return Math.pow(total,2)
+        }else if(signs.includes("√")){
+            return Math.sqrt(total)
         }
     })
+    
     display.value=Math.round(final*1000)/1000
 }
 

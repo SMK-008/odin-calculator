@@ -20,7 +20,7 @@ input{
     margin-bottom:20px;
     border: 3px solid black;
     border-radius: 5px;
-    background-color: grey;
+    font-size: 30px;
 
 }
 .buttons{
@@ -38,7 +38,8 @@ button{
     font-size: 20px;
     color: aqua;
     border: 1px solid grey;
-    border-radius: 3px;
+    border-radius: 900px;
+
 }
 .signs{
     font-size: 30px;
@@ -46,13 +47,39 @@ button{
     background-color: whitesmoke;
     color:tomato;
 }
+.signs:hover{
+    background-color: black;
+    color: white;
+}
+#root,#squared,#power{
+    background-color: aqua;
+    color: black;
+}
+#root:hover,#squared:hover,#power:hover{
+    color: white;
+    
+}
 #clear{
 background-color: brown;
 color: black;
 
 }
+#clear:hover{
+    color: white;
+}
 button:hover{
     background-color: white;
     color: black;
     opacity: 0.8;
+}
+#equals{
+    background-color: blue;
+    color: black;
+}
+#equals:hover{
+opacity: 0.8;
+color: white;    
+}
+button:hover{
+    border: 1px solid black;
 }
